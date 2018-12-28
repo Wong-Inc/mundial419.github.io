@@ -1,0 +1,45 @@
+<DOCTYPE html>
+<html lang="en-UK">
+    <head>
+        <title>Currency Converter</title>
+						<link rel="stylesheet" href="css/stylesheet.css">
+						<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body background="mybackground.jpeg">
+        
+        <div  id="container" align="center">
+            <h3>Currency Converter</h3>
+            <br>
+            From: <select required onchange="changePlaceholderAttribute()" id="sell">
+                <option value="USD">United States Dollar ($)</option>
+                <option value="NGN"> 
+                Nigerian Naira (₦)</option>
+                <option value="GBP">Great British Pound (£)</option>
+                <option value="EUR">Euro(€)</option>
+                <option value="YEN">Japanese Yen (¥)</option>
+            </select>
+            <br>
+            To: <select required onchange="newchangePlaceholderAttribute()" id="sel">
+                <option value="USD">United States Dollar ($)</option>
+                <option selected value="NGN"> 
+                Nigerian Naira (₦)</option>
+                <option value="GBP">Great British Pound (£)</option>
+                <option value="EUR">Euro(€)</option>
+                <option value="YEN">Japanese Yen (¥)</option>
+            </select>
+            <br><br><br><br>
+										Amount <br>
+           				 <input onkeyup="reg()" pattern="^[0–9]$" oninput="rm()" onkeypress="ok()"  onfocus="rm()"  type="text" id="input1" required>
+           				 <input required type="number" id="input2">
+				<br><br>
+									<button  id="button" class="button" onfocus="foc()" type="submit" id="convertButton"value="Convert" onclick="execute()" >Convert</button>
+           <br>
+<div class="sec">
+        <p id="display"></p>
+		
+</div>
+        </div>
+
+        <script src="js/script.js" type="text/javascript"></script>
+    </body>
+</html>
