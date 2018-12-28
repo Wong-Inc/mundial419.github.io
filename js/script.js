@@ -22,7 +22,6 @@ Http.onload = Request;
 
  myData = JSON.parse(myData);
 
-    document.getElementById("display").innerHTML = Http.response;
 
 }
 
