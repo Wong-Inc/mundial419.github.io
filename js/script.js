@@ -3644,8 +3644,3 @@ function ZWL() {
 var displayResult = document.getElementById("display"); return displayResult.innerHTML = "Equals " + (d * a/b).toFixed(4) + " " + eval( " " + "document.body.querySelector(" + JSON.stringify("option[value = " + JSON.stringify(secondOptionValue.value) + "]") + ")" + ".textContent") ;
 
 };
-
-
-
-
-
