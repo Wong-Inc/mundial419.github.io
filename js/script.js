@@ -1,10 +1,6 @@
-try {
+window.onload = alert("js works");
 var SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-  
-}
-catch(error){
-	return console.log(error);
-}
+ 
 
 var instructions = document.querySelector("#instructions");
  
@@ -22,7 +18,7 @@ recognition.onerror = function(event) {
   }
 };
 
-recognition.onresult = (event) => {
+recognition.onresult = function(event) {
 	var current = event.resultIndex;
 	var transcript = event.results[current][0].transcript;
 	var txt = document.querySelector("#textbox");
@@ -33,7 +29,7 @@ recognition.onresult = (event) => {
 	};
 };
 
-var startVoice = (e) => {
+var startVoice = function(e) {
 	return  recognition.start();
 };
 
