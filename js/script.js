@@ -1,6 +1,6 @@
 
 var SpeechRecognition = window.webkitSpeechRecognition;
- 
+ var recognition = new SpeechRecognition();
 
 var instructions = document.querySelector("#instructions");
  
@@ -24,7 +24,7 @@ recognition.onresult = function(event) {
 	var txt = document.querySelector("#textbox");
 	txt.value += transcript;
 	var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript); 
-	if (!mobileRepeatBug) { 
+	if (mobileRepeatBug) { 
 	txt.value += transcript;
 	};
 };
