@@ -1,20 +1,20 @@
-window.onload = alert("js works");
-var SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+var SpeechRecognition = window.webkitSpeechRecognition;
  
 
 var instructions = document.querySelector("#instructions");
  
 recognition.onstart = function() { 
-  instructions.text('Voice recognition is ON.');
+  instructions.innerHTML = 'Voice recognition is ON.';
 };
  
 recognition.onspeechend = function() {
-  instructions.text('No activity.');
+  instructions.innerHTML = 'No Activity .';
 };
  
 recognition.onerror = function(event) {
   if(event.error == 'no-speech') {
-    instructions.text('Try again.');  
+    instructions.innerHTML = 'Try again.'; 
   }
 };
 
