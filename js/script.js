@@ -94,6 +94,18 @@ editor.session.insert(customPosition , text);*/
 setupEditor();
 update();
   
+function Create(transcript) {
+		var element = /create/;
+		if (element.test(transcript) === true) {
+			alert("Creating your element");
+			
+			}
+			
+			else {
+			
+			}
+};
+
 
 
  
