@@ -1,4 +1,4 @@
-
+		
 var SpeechRecognition = window.webkitSpeechRecognition;
  var recognition = new SpeechRecognition();
 
@@ -21,8 +21,7 @@ recognition.onerror = function(event) {
 recognition.onresult = function(event) {
 	var current = event.resultIndex;
 	var transcript = event.results[current][0].transcript;
-	var txt = document.querySelector("#textbox");
-	txt.value += transcript;
+	Create(transcript);
 	var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript); 
 	if (mobileRepeatBug) { 
 	txt.value += transcript;
@@ -48,22 +47,7 @@ function setupEditor()
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/html");
 	
-  editor.setValue(`<!DOCTYPE html>
-<html>
-<head>
-<title></title>
-</head>
-
-<body>
-The content of the document......
-</body>
-
-</html>
-
-
-
-
-`,1);
+  editor.setValue("",1);
  //1 = moves cursor to end
 	/*var customPosition = {
     row: ,
@@ -72,7 +56,7 @@ The content of the document......
 
 var text = "This text has been dinamically inserted";
 
-editor.session.insert(customPosition , text);*/
+editor.session.insert(editor.getCursorPosition() , text);*/
   editor.getSession().on('change', function() {
     update();
   });
@@ -97,12 +81,18 @@ update();
 function Create(transcript) {
 		var element = /create/;
 		if (element.test(transcript) === true) {
-			alert("Creating your element");
-			
+			var splitter = transcript.split(' ');
+			checkString = elementsArray.indexOf(splitter[1]);
+			if (checkString > -1) {
+				var bbb= "<" + elementsArray[checkString] + ">" + " " + "<" + "/" + elementsArray[checkString] + ">";
+
+		//		var bb = document.querySelector("#hh");
+					return editor.session.insert(editor.getCursorPosition() , bbb);
+				}
 			}
 			
 			else {
-			
+			return alert("Shit aint working bro");
 			}
 };
 
