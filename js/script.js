@@ -117,7 +117,7 @@ function Add(transcript) {
 					var attributeEndPosition = lineContent.indexOfEnd(elem);
 					return editor.session.insert(function(){
 					return {row: cursor.row, column: attributeEndPosition};
-					},"hello");
+					},"heltlo");
 				}
 			}
 			
