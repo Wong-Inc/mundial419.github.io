@@ -22,6 +22,7 @@ recognition.onresult = function(event) {
 	var current = event.resultIndex;
 	var transcript = event.results[current][0].transcript;
 	Create(transcript);
+	Add(transcript);
 	var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript); 
 	if (mobileRepeatBug) { 
 	txt.value += transcript;
@@ -78,23 +79,57 @@ editor.session.insert(editor.getCursorPosition() , text);*/
 setupEditor();
 update();
   
+
+String.prototype.indexOfEnd = function(string) {
+    var io = this.indexOf(string);
+    return io == -1 ? -1 : io + string.length;
+};
+
 function Create(transcript) {
 		var element = /create/;
 		if (element.test(transcript) === true) {
 			var splitter = transcript.split(' ');
-			checkString = elementsArray.indexOf(splitter[1]);
+			var checkString = elementsArray.indexOf(splitter[1]);
 			if (checkString > -1) {
-				var bbb= "<" + elementsArray[checkString] + ">" + " " + "<" + "/" + elementsArray[checkString] + ">";
+				var createdElement = "<" + elementsArray[checkString] + ">" + " " + "<" + "/" + elementsArray[checkString] + ">";
 
-		//		var bb = document.querySelector("#hh");
-					return editor.session.insert(editor.getCursorPosition() , bbb);
+
+					return editor.session.insert(editor.getCursorPosition() , createdElement);
 				}
 			}
 			
-			else {
-			return alert("Shit aint working bro");
-			}
+			
 };
+
+function Add(transcript) {
+		var element = /add/;
+		if (element.test(transcript) === true) {
+			var splitter = transcript.split(' ');
+			for (var key in elements){
+				var checkString = key.indexOf(splitter[2]);
+			if (checkString > -1) {
+				var getString = key[checkString];
+				var cursor = editor.getCursorPosition();
+				var lineContent = editor.session.getLine(cursor.row);
+				var lineSplitter = lineContent.split(' ');
+				var elem = "<" + key;
+					var attributeStartPosition = lineContent.indexOf(elem);
+					var attributeEndPosition = lineContent.indexOfEnd(elem);
+					return editor.session.insert(function(){
+					return {row: cursor.row, column: attributeEndPosition};
+					},"hello");
+				}
+			}
+			
+			}
+
+};
+
+function  Posi() {
+			var cursor = editor.getCursorPosition();
+				var lineContent = editor.session.getLine(cursor.row);
+	return {row: cursor.row, column: attributeEndPosition};
+}
 
 
 
