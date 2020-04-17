@@ -103,34 +103,32 @@ function Create(transcript) {
 
 function Add(transcript) {
 		var element = /add/;
+		var cursor = editor.getCursorPosition();
+			var line = editor.session.getLine(cursor.row);
 		if (element.test(transcript) === true) {
 			var splitter = transcript.split(' ');
-			for (var key in elements){
-				var checkString = key.indexOf(splitter[2]);
-			if (checkString > -1) {
-				var getString = key[checkString];
-				var cursor = editor.getCursorPosition();
-				var lineContent = editor.session.getLine(cursor.row);
-				var lineSplitter = lineContent.split(' ');
-				var elem = "<" + key;
-					var attributeStartPosition = lineContent.indexOf(elem);
-					var attributeEndPosition = lineContent.indexOfEnd(elem);
-					return editor.session.insert(function(){
-					return {row: cursor.row, column: attributeEndPosition};
-					},"heltlo");
-				}
-			}
+					if (Attributes.indexOf(splitter[2]) > -1) {
+					var addAttribute = " " + splitter[2] + "=" + "'" + "'";
+			return editor.session.insert(editor.getCursorPosition() , addAttribute);
 			
+			}
 			}
 
 };
 
-function  Posi() {
-			var cursor = editor.getCursorPosition();
-				var lineContent = editor.session.getLine(cursor.row);
-	return {row: cursor.row, column: attributeEndPosition};
-}
+var globalSplit;
 
 
+function Each(item) {
+			
+		
+				if (Attributes.indexOf(globalSplit[2]) > -1) {
+					var addAttribute = "=" + "'" + globalSplit[2] + "'";
+			return editor.session.insert(editor.getCursorPosition() , addAttribute);
+	
+					}
+			else {
+			alert("egungun be careful");
+			}
+} 
 
- 
