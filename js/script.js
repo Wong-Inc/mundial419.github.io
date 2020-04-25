@@ -1,4 +1,4 @@
-		
+		window.onload = welcome;
 var SpeechRecognition = window.webkitSpeechRecognition;
  var recognition = new SpeechRecognition();
 
@@ -23,6 +23,7 @@ recognition.onresult = function(event) {
 	var transcript = event.results[current][0].transcript;
 	Create(transcript);
 	Add(transcript);
+	lineBreak(transcript);
 	var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript); 
 	if (mobileRepeatBug) { 
 	txt.value += transcript;
@@ -89,13 +90,17 @@ function Create(transcript) {
 		var element = /create/;
 		if (element.test(transcript) === true) {
 			var splitter = transcript.split(' ');
-			var checkString = elementsArray.indexOf(splitter[1]);
-			if (checkString > -1) {
-				var createdElement = "<" + elementsArray[checkString] + ">" + " " + "<" + "/" + elementsArray[checkString] + ">";
-
-
-					return editor.session.insert(editor.getCursorPosition() , createdElement);
-				}
+			globalSplit = splitter;
+	
+		var check = elementsArray.indexOf(globalSplit[1]);
+			
+		 if (check > -1){
+				var elem =  "<" + elementsArray[check] + ">" + " " + "<" + "/" + elementsArray[check] + ">";
+		return editor.session.insert(editor.getCursorPosition() , elem);
+			}
+			elementNames.forEach(cop);
+		
+//	alert(transcript);
 			}
 			
 			
@@ -110,8 +115,7 @@ function Add(transcript) {
 					if (Attributes.indexOf(splitter[2]) > -1) {
 					var addAttribute = " " + splitter[2] + "=" + "'" + "'";
 			return editor.session.insert(editor.getCursorPosition() , addAttribute);
-			
-			}
+				}
 			}
 
 };
@@ -120,15 +124,24 @@ var globalSplit;
 
 
 function Each(item) {
-			
-		
 				if (Attributes.indexOf(globalSplit[2]) > -1) {
 					var addAttribute = "=" + "'" + globalSplit[2] + "'";
 			return editor.session.insert(editor.getCursorPosition() , addAttribute);
-	
 					}
 			else {
 			alert("egungun be careful");
 			}
 } 
+/*
+function welcome() {
+	alert("Welcme, " + localStorage.Name);
+}*/
 
+	function cop(item) {
+		if (globalSplit.indexOf(item) > -1) {
+			return eval(item + "("  + ")");
+			}
+			
+				}
+				
+					
