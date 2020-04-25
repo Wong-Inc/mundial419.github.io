@@ -87,7 +87,7 @@ String.prototype.indexOfEnd = function(string) {
 
 function Create(transcript) {
 		var element = /create/;
-		if (element.test(transcript) === true) {
+/*		if (element.test(transcript) === true) {
 			var splitter = transcript.split(' ');
 			globalSplit = splitter;
 	
@@ -98,9 +98,11 @@ function Create(transcript) {
 		return editor.session.insert(editor.getCursorPosition() , elem);
 			}
 			elementNames.forEach(cop);
-		
-
 			}
+		*/
+		
+		alert(transcript);
+			
 			
 			
 };
