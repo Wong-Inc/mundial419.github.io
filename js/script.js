@@ -23,7 +23,6 @@ recognition.onresult = function(event) {
 	var transcript = event.results[current][0].transcript;
 	Create(transcript);
 	Add(transcript);
-	lineBreak(transcript);
 	var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript); 
 	if (mobileRepeatBug) { 
 	txt.value += transcript;
@@ -100,7 +99,7 @@ function Create(transcript) {
 			}
 			elementNames.forEach(cop);
 		
-//	alert(transcript);
+
 			}
 			
 			
@@ -132,10 +131,7 @@ function Each(item) {
 			alert("egungun be careful");
 			}
 } 
-/*
-function welcome() {
-	alert("Welcme, " + localStorage.Name);
-}*/
+
 
 	function cop(item) {
 		if (globalSplit.indexOf(item) > -1) {

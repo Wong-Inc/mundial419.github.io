@@ -868,7 +868,7 @@ else if (globalSplit.indexOf("heading 6") > -1 ) {
        if (globalSplit.indexOf("meta") > -1 ) {
     var checkStr = elementNames.indexOf("meta");
     
-    var elem =  "<" + "meta" + "description=' '" + " " + "content=' '" + " "  ">";
+    var elem =  "<" + "meta" + " description=' '" + " " + "content=' '" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
   }
@@ -913,7 +913,7 @@ else if (globalSplit.indexOf("no script") > -1 ) {
     var elem =  "<" + "noscript" + ">" + " " + "<" + "/" + "noscript" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("no frames") > -1 ) {
+else if (globalSplit.indexOf("no frames") > -1 ) {
     var checkStr = elementNames.indexOf("no frames");
     
     var elem =  "<" + "noframes" + ">" + " " + "<" + "/" + "no frames" + ">";
@@ -956,7 +956,7 @@ elseif (globalSplit.indexOf("no frames") > -1 ) {
     var elem =  "<" + "optgroup" + ">" + " " + "<" + "/" + "optgroup" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("option") > -1 ) {
+else if (globalSplit.indexOf("option") > -1 ) {
     var checkStr = elementNames.indexOf("option");
     
     var elem =  "<" + "option" + ">" + " " + "<" + "/" + "option" + ">";
@@ -1046,13 +1046,13 @@ elseif (globalSplit.indexOf("option") > -1 ) {
     var elem =  "<" + "rp" + ">" + " " + "<" + "/" + "rp" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("ruby typography") > -1 ) {
+else if (globalSplit.indexOf("ruby typography") > -1 ) {
     var checkStr = elementNames.indexOf("ruby typography");
     
     var elem =  "<" + "rt" + ">" + " " + "<" + "/" + "rt" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("ruby") > -1 ) {
+else if (globalSplit.indexOf("ruby") > -1 ) {
     var checkStr = elementNames.indexOf("ruby");
     
     var elem =  "<" + "rp" + ">" + " " + "<" + "/" + "rp" + ">";
@@ -1227,25 +1227,25 @@ function svg() {
     var elem =  "<" + "tbody" + ">" + " " + "<" + "/" + "tbody" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("table cell") > -1 ) {
+else if (globalSplit.indexOf("table cell") > -1 ) {
     var checkStr = elementNames.indexOf("table cell");
     
     var elem =  "<" + "td" + ">" + " " + "<" + "/" + "td" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("table row") > -1 ) {
+else if (globalSplit.indexOf("table row") > -1 ) {
     var checkStr = elementNames.indexOf("table row");
     
     var elem =  "<" + "tr" + ">" + " " + "<" + "/" + "tr" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("table header") > -1 ) {
+else if (globalSplit.indexOf("table header") > -1 ) {
     var checkStr = elementNames.indexOf("table header");
     
     var elem =  "<" + "th" + ">" + " " + "<" + "/" + "th" + ">";
     return editor.session.insert(editor.getCursorPosition() , elem);
     }
-elseif (globalSplit.indexOf("table foot") > -1 ) {
+else if (globalSplit.indexOf("table foot") > -1 ) {
     var checkStr = elementNames.indexOf("table foot");
     
     var elem =  "<" + "tfoot" + ">" + " " + "<" + "/" + "tfoot" + ">";
@@ -1364,14 +1364,7 @@ function variable() {
 
 
 
-  function paragraph() {
-       if (globalSplit.indexOf("paragraph") > -1 ) {
-    var checkStr = elementNames.indexOf("paragraph");
-    
-    var elem =  "<" + "p" + ">" + " " + "<" + "/" + "p" + ">";
-    return editor.session.insert(editor.getCursorPosition() , elem);
-    }
-  }
+  
 
 
 
