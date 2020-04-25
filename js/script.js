@@ -101,7 +101,7 @@ function Create(transcript) {
 			}
 		
 		
-		alert(transcript);
+		
 			
 			
 			
