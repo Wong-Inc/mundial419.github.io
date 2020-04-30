@@ -16,7 +16,7 @@ recognition.onerror = function(event) {
   if(event.error == 'no-speech') {
     instructions.innerHTML = 'Try again.'; 
   }
-};
+}; 
 
 recognition.onresult = function(event) {
 	var current = event.resultIndex;
