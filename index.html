@@ -2,30 +2,78 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-     <link rel="stylesheet" href="css/style.css">
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		   <link rel="stylesheet" href="css/style.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
- 
-<body>
-<button onclick="startVoice()">Record</button>
-<p id="instructions"></p>
-<br></br>
-<p id="hh"></p>
-	<div id="container">
-	
-		<div id="editor">
-				
-		</div>	
+ 	<body id="top">
+		<nav class="navbar navbar-expand-lg bg-dark fixed-top navbar-dark"  id="mainNav">
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="#top">MVP REPUBLIC</a>
+				<button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation" type="button">Menu</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav text-uppercase text-uppercase">
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Home</a></li>
+						
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</a>
+							<div class="dropdown-menu" aria-labelledby="navDropdown">
+								<a class="dropdown-item" href="#link1">Save</a>
+								<a class="dropdown-item" href="#link1">Save All</a>
+							<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#link1">Show HTML</a>
+								<a class="dropdown-item" href="#link1">Show css</a>
+								<a class="dropdown-item" href="#link1">show javascript</a>
+							<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#link1">show all</a>
+							</div>
+						</li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Preview</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Theme</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">About</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<section id="headline">
+		<div class="row bg-dark text-info">
+			<div class="oya">
+				<p>HTML</p>
+			</div>
+			<div class="oya">
+				<p>CSS</p>
+			</div>
+			<div class="oya">
+				<p>JAVASCRIPT</p>
+			</div>
+			</div>
+		</section>
+		
+				<section id="namer">
+								<div id="htmleditor" onkeyup="mobileKey(event)">
+									
+								</div>
+								<div id="csseditor">
+								
+								</div>
+								<div id="jseditor">
+								
+								</div>
+				</section>
+			
+		
 		<iframe id="iframe" frameBorder="0">
 			
 		</iframe>
-	</div>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" type="text/javascript"></script> 
+	
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" type="text/javascript"></script> 
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/script.js" type="text/javascript"></script>
-			    <script src="js/attribute_functions.js" type="text/javascript"></script>
-    <script src="js/elements.js" type="text/javascript"></script>
-    
-    </body>
+       <script src="js/script.js" type="text/javascript"></script>
+		<script src="js/attribute_functions.js" type="text/javascript"></script>
+    	<script src="js/elements.js" type="text/javascript"></script>
+   		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
 </html>
