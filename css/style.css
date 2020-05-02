@@ -65,3 +65,14 @@ html, body {
 	display: inline-block;
 	text-align: center;
 		}
+		
+
+		#headd {
+	height: 8px;
+		width: 100%;
+	display: inline-block;
+	text-align: center;
+	height: 8px;
+	position:relative;
+	top: 150px;
+	}
