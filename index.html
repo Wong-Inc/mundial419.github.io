@@ -5,12 +5,13 @@
   		   <link rel="stylesheet" href="css/style.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+			<script src="https://kit.fontawesome.com/19c4712e44.js" crossorigin="anonymous"></script>
     </head>
- 	<body id="top">
+ 	<body id="top" >
 		<nav class="navbar navbar-expand-lg bg-dark fixed-top navbar-dark"  id="mainNav">
 			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="#top">MVP REPUBLIC</a>
-				<button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation" type="button">Menu</button>
+				<a class="navbar-brand js-scroll-trigger" href="#top">MVP STACK</a>
+				<i class="navbar-toggler navbar-toggler-right fas fa-caret-down" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation" ></i>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav text-uppercase text-uppercase">
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Home</a></li>
@@ -19,17 +20,15 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</a>
 							<div class="dropdown-menu" aria-labelledby="navDropdown">
-								<a class="dropdown-item" href="#link1">Save</a>
-								<a class="dropdown-item" href="#link1">Save All</a>
+								<a class="dropdown-item" id="save" onclick="save()">Save</a>
+								<a class="dropdown-item" onclick="reset()">Reset</a>
 							<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#link1">Show HTML</a>
-								<a class="dropdown-item" href="#link1">Show css</a>
-								<a class="dropdown-item" href="#link1">show javascript</a>
+							<a class="dropdown-item" data-toggle="modal" data-target="#basicExampleModall">Go to Line</a>
 							<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#link1">show all</a>
+								<a class="dropdown-item" href="#settings">Settings</a>
 							</div>
 						</li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Preview</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">How-To Guide</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Theme</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">About</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#link1">Contact</a></li>
@@ -40,44 +39,123 @@
 		<section id="headline">
 		<div class="row bg-dark text-info">
 			<div class="oya">
-				<p>HTML</p>
+				<p id="ht">HTML     <span class="social-spanner"></span><i class="fas fa-microphone-alt" onclick="startVoice()"></i></p>
 			</div>
 			<div class="oya">
-				<p>CSS</p>
+				<p id="cs">CSS</p>
 			</div>
 			<div class="oya">
-				<p>JAVASCRIPT</p>
+				<p id="js">JAVASCRIPT</p>
 			</div>
 			</div>
 		</section>
 		
 				<section id="namer">
-								<div id="htmleditor">
+								<div id="htmleditor" oninput="unsave()" onchange="trackChangeH()">
 									
 								</div>
-								<div id="csseditor">
+								<div id="csseditor" oninput="unsave()" onchange="trackChangeC()">
 								
 								</div>
-								<div id="jseditor">
+								<div id="jseditor" oninput="unsave()" onchange="trackChangeJ()">
 								
 								</div>
 				</section>
-<!--			<section id="headd">
-				<div  class="container-fluid text-uppercase d-flex justify-content-center bg-dark ">
-					<div class="row text-info "> -->
-				<br></br>	<br></br>
-				<br></br>
-				<br></br>
-				<br></br>
-						<div class="col-4"><button id="un" type="button" onclick="undo()">Undo</button></div>
-						<div class="col-4"><button id="re" type="button" onclick="redo()">Redo</button></div>
-			<!--	</div>
-			</section>
-		-->
+						
+					<div id="toolsDiv" class="container-fluid  bg-dark">
+						<div class="row ">
+							<div class="col-3"><i class="fas fa-undo-alt color-cyan d-flex justify-content-center" id="un" onclick="undo()"></i></div>
+							<div class="col-3"><i class="fas fa-redo-alt color-cyan d-flex justify-content-center" id="re" onclick="redo()"></i></div>
+							<div class="col-3"><i class="fas fa-search color-cyan d-flex justify-content-center" data-toggle="modal" data-target="#basicExampleModal" onclick="find()"></i></div>
+							<div class="col-3"><i class="fas fa-save color-cyan d-flex justify-content-center" onclick="save()"></i></div>
+						</div>
+					</div>
+					
+<!-- Modal -->
+<div class="modal fade bg-dark" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark text-info">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Find & Replace</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-info" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input id="find" class="text-info bg-dark" type="text" placeholder="Find">
+		<span></span>
+		<input class="text-info bg-dark" id="replace" type="text" placeholder="Replace">
+      </div>
+      <div class="modal-footer">
+		<input type="checkbox" id="checkF">Find All</input>
+		<button type="button" class="btn btn-info" onclick="find()" data-dismiss="modal" >Find</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal" onclick="replace()">Replace</button>
+			<input type="checkbox" id="checkR">Replace All</input>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade bg-dark" id="basicExampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark text-info">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabell">Go to Line</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-info" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input id="goto" class="text-info bg-dark" type="text" placeholder="Line Number">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" onclick="goTo()">Go</button>
+			
+      </div>
+    </div>
+  </div>
+</div>
 		<iframe id="iframe" frameBorder="0">
 			
 		</iframe>
-	
+			<!--
+		<footer  id="footer">
+			<div class="container-fluid bg-dark text-uppercase">
+				<div class="row">
+				
+					<div class="col-3 text-info">
+						
+						<ul id="foot-list">
+						<li><a href="#">Documentation</a></li>
+							<li><a href="#">Syntax Highlights</a></li>
+							<li><a href="#">How-To Guide</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-3 text-info">
+						
+						<ul id="foot-list">
+						<li><a href="#">About</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Settings</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-3 text-info">
+						
+						<ul id="foot-list">
+						<li><a href="#">Blog</a></li>
+							<li><a href="#">Social Media</a></li>
+							<li><a href="#">Suggestions</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		-->
 	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" type="text/javascript"></script> 
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
