@@ -83,15 +83,15 @@ var replaceBtn = document.querySelector("#replace");
 	
 	function unsave() {
 	
-	if (editor.getValue() !== localStorage.html) {
+	if (editor.getValue() !== window.localStorage.html) {
 		var para = document.querySelector("#ht");
 				para.innerHTML = "HTML" + "<span style='color:white;'>*</span><span class='social-spanner'></span><i class='fas fa-microphone-alt' onclick='startVoice()'></i>";
 		}
-	  if (csseditor.getValue() !== localStorage.css) {
+	  if (csseditor.getValue() !== window.localStorage.css) {
 			var paraC = document.querySelector("#cs");
 				paraC.innerHTML = "CSS" + "<span style='color:white;'>*</span>";
 			}
-		 if (jseditor.getValue() !== localStorage.javascript) {
+		 if (jseditor.getValue() !== window.localStorage.javascript) {
 				var paraJ = document.querySelector("#js");
 				paraJ.innerHTML = "JAVASCRIPT" + "<span style='color:white;'>*</span>";
 				}
@@ -105,9 +105,9 @@ var replaceBtn = document.querySelector("#replace");
 			}
 			
 		function reset() {
-			localStorage.html = " ";
-			localStorage.css = " ";
-			localStorage.javascript = " ";
+			window.localStorage.html = " ";
+			window.localStorage.css = " ";
+			window.localStorage.javascript = " ";
 			editor.session.setValue("");
 			csseditor.session.setValue("");
 			jseditor.session.setValue("");

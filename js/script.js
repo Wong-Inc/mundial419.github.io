@@ -52,7 +52,7 @@ function setupEditor()
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/html");
 	
-  editor.setValue(localStorage.html,1);
+  editor.setValue(window.localStorage.html,1);
 editor.getSession().on('change', function() {
     update();
   });
@@ -64,7 +64,7 @@ window.csseditor = ace.edit("csseditor");
   csseditor.setTheme("ace/theme/monokai");
   csseditor.getSession().setMode("ace/mode/css");
 	
-  csseditor.setValue(localStorage.css,1);
+  csseditor.setValue(window.localStorage.css,1);
 csseditor.getSession().on('change', function() {
     update();
   });
@@ -74,7 +74,7 @@ window.jseditor = ace.edit("jseditor");
   jseditor.setTheme("ace/theme/monokai");
   jseditor.getSession().setMode("ace/mode/javascript");
 	
-  jseditor.setValue(localStorage.javascript, 1);
+  jseditor.setValue(window.localStorage.javascript, 1);
 
   jseditor.getSession().on('change', function() {
     update();
