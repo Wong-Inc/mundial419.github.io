@@ -1,3 +1,4 @@
+
 var tracker;
 	var menuBtn = document.querySelector("#menu");
 	var menuStatus;

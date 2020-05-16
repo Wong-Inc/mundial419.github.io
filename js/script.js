@@ -1,3 +1,6 @@
+var savedHtml =  window.localStorage.getItem('html');
+var savedCss =   window.localStorage.getItem('css');
+var savedJs =  window.localStorage.getItem('javascript');
 
 var SpeechRecognition = window.webkitSpeechRecognition;
  var recognition = new SpeechRecognition();
@@ -51,8 +54,9 @@ function setupEditor()
   window.editor = ace.edit("htmleditor");
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/html");
-	
-  editor.setValue(window.localStorage.html,1);
+		editor.setValue("",1);
+		editor.session.insert({row:0, column: 0}, savedHtml);
+		
 editor.getSession().on('change', function() {
     update();
   });
@@ -63,9 +67,10 @@ editor.getSession().on('change', function() {
 window.csseditor = ace.edit("csseditor");
   csseditor.setTheme("ace/theme/monokai");
   csseditor.getSession().setMode("ace/mode/css");
-	
-  csseditor.setValue(window.localStorage.css,1);
-csseditor.getSession().on('change', function() {
+	csseditor.setValue("",1);	
+		
+  csseditor.session.insert({row:0, column: 0}, savedCss);
+	csseditor.getSession().on('change', function() {
     update();
   });
 
@@ -73,8 +78,9 @@ csseditor.getSession().on('change', function() {
 window.jseditor = ace.edit("jseditor");
   jseditor.setTheme("ace/theme/monokai");
   jseditor.getSession().setMode("ace/mode/javascript");
-	
-  jseditor.setValue(window.localStorage.javascript, 1);
+	jseditor.setValue("",1);	
+		
+  jseditor.session.insert({row:0, column: 0}, savedJs);
 
   jseditor.getSession().on('change', function() {
     update();
@@ -90,7 +96,7 @@ window.jseditor = ace.edit("jseditor");
     vScrollBarAlwaysVisible:true,
     enableBasicAutocompletion: true, enableLiveAutocompletion: false });
 
-  editor.setShowPrintMargin(false);
+  
   editor.setBehavioursEnabled(false);
 editor.enableBasicAutocompletion(true);
 
